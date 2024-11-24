@@ -119,3 +119,33 @@
 # print(duljina)
 ## razlika dictionary i  comprehension liste 
 # paran_neparan = {i: "paran" if i % 2 == 0 else "neparan" for i in range(1, 11)}
+
+##klase i objekti
+
+#primjer konstruktor klase
+class studenti:
+    def __init__(self, ime, prezime):
+        self.ime=ime
+        self.prezime=prezime
+
+student1 = studenti("ivo","ivic")
+student2 = studenti("ivo","ivic")
+student3 = studenti("ivo","ivic")
+#ova klasa sadrzi objekt student sa njegovim parametrima ime , prezime.. itd
+# student_n_ = studenti("ime","prezime") | n, el. N- simple as that
+
+
+##primjer metode klase- funckije koje se definiraju unutar klase
+
+class Osoba:
+ def __init__(self, ime, prezime, godine):
+    self.ime = ime
+    self.prezime = prezime
+    self.godine = godine
+ def pozdrav(self):
+    return f"Pozdrav, ja sam {self.ime} {self.prezime} i imam {self.godine} godina."
+
+
+#Nasljeđivanje
+
+del admin
