@@ -87,3 +87,35 @@
 # kvariraj = list(map(lambda x: x**2, range(1,11)))
 
 # print(kvariraj)
+
+
+## comprehension
+#[expression for element in iterable]
+
+# kvadrat = [x **2 for x in range(1,11)]
+
+# print(kvadrat)
+
+## [expression for element in iterable if condition] mozes nakon if condition dodat else condition
+
+# niz = [1,2,3,4,5,6]
+# duljie =[x**2 for x in niz if x%2 !=0]
+# print(duljie)
+
+
+# fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+# list =[x[:3] for x in fruits]
+
+# print(list)
+
+##2.2 Dictionary comprehension
+
+# fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+
+
+# duljina = {x: len(x) for x in fruits}
+
+# print(duljina)
+## razlika dictionary i  comprehension liste 
+# paran_neparan = {i: "paran" if i % 2 == 0 else "neparan" for i in range(1, 11)}
