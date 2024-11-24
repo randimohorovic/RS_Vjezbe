@@ -73,8 +73,13 @@ class kalkulator:
 
 broj1 =kalkulator(5,5)
 
+
+print(broj1.zbrajanje())
+print(broj1.oduzimanje())
+print(broj1.mnozenje())
+print(broj1.dijeljenje())
+print(broj1.potenciranje())
 print(broj1.korijen())
-    
     
 
 # 3. Definirajte klasu Student s atributima ime , prezime , godine i ocjene .
