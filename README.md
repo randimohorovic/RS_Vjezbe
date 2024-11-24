@@ -2,7 +2,7 @@
 
 ### Organizacija
 **Sveučilište Jurja Dobrile u Puli**  
-**Fakultet informatike u Puli**
+**[Fakultet informatike u Puli](https://fipu.unipu.hr/)**
 
 ### Kolegij
 **Raspodijeljeni sustavi, ak. god. 2024./2025.**
