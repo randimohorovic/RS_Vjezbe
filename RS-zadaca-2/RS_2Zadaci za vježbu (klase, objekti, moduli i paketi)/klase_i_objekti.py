@@ -1,6 +1,15 @@
 # 6. Zadaci za vježbu - Klase, objekti, moduli i
 # paketi
 # Zadatak 4: Klase i objekti
+
+# 1. Definirajte klasu Automobil s atributima marka , model , godina_proizvodnje i kilometraža .
+# Dodajte metodu ispis koja će ispisivati sve atribute automobila.
+# Stvorite objekt klase Automobil s proizvoljnim vrijednostima atributa i pozovite metodu ispis .
+# Dodajte novu metodu starost koja će ispisivati koliko je automobil star u godinama, trenutnu
+# godine dohvatite pomoću datetime modula.
+
+from datetime import datetime
+
 class automobili:
     def __init__(self, marka, model, godina_proizvodnje, kilometraza):
         self.marka = marka
@@ -11,17 +20,16 @@ class automobili:
     def ispis(self):
         return f"ispis svih atributa , marka: {self.marka} model: {self.model} godina proizvodnje: {self.godina_proizvodnje} km: {self.kilometraza} "        
 
+    def starost(self):
+        trenutna_godina = datetime.now().year  
+        starost = trenutna_godina - self.godina_proizvodnje
+        return f"Automobil {self.marka} {self.model} star je {starost} godina."
+
 
 auto1= automobili("BMW", "m4 coupe", "2018", 60000)
 
 print(auto1.ispis())
-
-# 1. Definirajte klasu Automobil s atributima marka , model , godina_proizvodnje i kilometraža .
-# Dodajte metodu ispis koja će ispisivati sve atribute automobila.
-# Stvorite objekt klase Automobil s proizvoljnim vrijednostima atributa i pozovite metodu ispis .
-# Dodajte novu metodu starost koja će ispisivati koliko je automobil star u godinama, trenutnu
-# godine dohvatite pomoću datetime modula.
-
+print(auto1.starost())
 
 
 # 2. Definirajte klasu Kalkulator s atributima a i b . Dodajte metode zbroj , oduzimanje , mnozenje ,
