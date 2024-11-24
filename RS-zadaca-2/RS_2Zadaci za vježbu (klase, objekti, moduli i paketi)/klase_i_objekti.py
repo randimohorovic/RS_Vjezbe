@@ -37,6 +37,46 @@ print(auto1.starost())
 # b .
 
 
+import math
+
+class kalkulator:
+    def __init__(self,a,b):
+        self.a = a 
+        self.b =b
+    
+    def zbrajanje(self):
+        return f"zbroj rezultat {self.a+self.b}"
+    
+        
+    def oduzimanje(self):
+        return f"oduzimanje rezultat:  {self.a-self.b}"
+
+    
+    def mnozenje(self):
+        return f"umnozak rezultat:  {self.a*self.b}"
+
+    
+    def dijeljenje(self):
+        if self.b == 0:
+            return "nije moguce djelit s nulom"
+        return f"dijeljenje rezultat:  {self.a/self.b}"
+    
+        
+    def potenciranje(self):
+        return f"potenciranje rezultat {self.a**self.b}"
+
+    
+    def korijen(self):
+        return f"rezultat je {math.sqrt(self.a)}, {math.sqrt(self.b)}"
+
+
+
+broj1 =kalkulator(5,5)
+
+print(broj1.korijen())
+    
+    
+
 # 3. Definirajte klasu Student s atributima ime , prezime , godine i ocjene .
 # Iterirajte kroz sljedeću listu studenata i za svakog studenta stvorite objekt klase Student i dodajte ga u
 # novu listu studenti_objekti :
