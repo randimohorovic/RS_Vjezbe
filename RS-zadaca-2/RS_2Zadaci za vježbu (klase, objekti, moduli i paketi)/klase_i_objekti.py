@@ -100,6 +100,26 @@ studenti = [
 # površinu kruga.
 # Stvorite objekt klase Krug s proizvoljnim radijusom i ispišite opseg i površinu kruga.
 
+import math
+
+class Krug:
+    def __init__(self, r):
+        self.r = r  
+    
+    def opseg(self):
+        return 2 * math.pi * self.r 
+    
+    def povrsina(self):
+        return math.pi * self.r ** 2  
+
+
+radijus = 5  
+krug = Krug(radijus)
+
+
+print(f"Opseg kruga s radijusom {radijus} je: {krug.opseg():.2f}")
+print(f"Površina kruga s radijusom {radijus} je: {krug.povrsina():.2f}")
+
 
 
 # 5. Definirajte klasu Radnik s atributima ime , pozicija , placa . Dodajte metodu work koja će ispisivati
