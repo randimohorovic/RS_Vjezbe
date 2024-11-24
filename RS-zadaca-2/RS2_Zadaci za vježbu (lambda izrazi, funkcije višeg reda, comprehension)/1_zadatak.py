@@ -1,4 +1,4 @@
-##Lambda izrazi za dole navedene funkcije
+##Lambda izrazi za dole navedene funkcije, zadaci 1-5
 
 ##1. Kvadriranje broja:
 # def kvadriraj(x):
