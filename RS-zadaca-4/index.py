@@ -21,9 +21,9 @@ async def main():
     #konekciju otvaram 1. 
     async with aiohttp.ClientSession() as session:
 
-        liste_korutina =[get_cat_fact(session) for i in range(5)]
+        taskovi =[asyncio.create_task( get_cat_fact(session)) for i in range(5)]
 
-        rezultati = await asyncio.gather(*liste_korutina)
+        rezultati = await asyncio.gather(*taskovi)
         print(type(rezultati))
         end_time = time.time()
     print(f"vrijem itzvodenja {end_time - start_time:.2f}")
