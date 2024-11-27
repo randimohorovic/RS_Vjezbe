@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 from aiohttp import web # server api- za definirat posluzitelja
+# ako saljemo za kljentske strane na posluzitelja, server treba bit prvi pokrenut,
 
 app = web.Application()
 
