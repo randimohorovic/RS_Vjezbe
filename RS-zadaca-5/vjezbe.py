@@ -21,15 +21,16 @@ app.router.add_post("/",post_handler)
 web.run_app(app,host ="localhost", port= 8080 ) # pokretanje servera, + isntaliraj nodemon za lakse porketanje koda
 
 
+# ovo je sad simulacija kljenta, znaci bez da koristis postman itd..,
+#sljedece zelimo pokrenut kljent ai posluzitelja u isto vrijeme ?
+async def main():
+    async with aiohttp.ClientSession() as session:
+     response = await session.get("http://localhost:8080")
+     response_json = await response.json()
+     print(response_json)
 
 
-#     async with aiohttp.ClientSession() as session:
-#      response = await session.get("https://jsonplaceholder.typicode.com/users")
-#      response_json = await response.json()
-#      print(response_json)
-
-
-# asyncio.run(main())
+asyncio.run(main())
 
 
 
