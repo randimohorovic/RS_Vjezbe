@@ -42,7 +42,6 @@ async def main():
 # <class 'list'>
 #vrijem itzvodenja 0.25 --> brze izvodenje
 
-asyncio.run(main())
 
 
 
