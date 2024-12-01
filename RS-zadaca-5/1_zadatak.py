@@ -3,14 +3,13 @@
 # JSON formatu. Svaki proizvod je rječnik koji sadrži ključeve naziv , cijena i količina . Pošaljite zahtjev na
 # adresu http://localhost:8080/proizvodi koristeći neki od HTTP klijenata ili curl i provjerite odgovor.
 
-import aiohttp
 from aiohttp import web 
 
 app = web.Application()
 
 
 def handler_function(request): 
-    print("helloW")
+    print("data poslan")
     data = {'naziv' : 'p1', 'cjena' : 10, 'kolicina': 6}
     return web.json_response(data)
 

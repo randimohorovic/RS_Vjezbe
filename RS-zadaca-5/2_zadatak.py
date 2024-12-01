@@ -7,15 +7,23 @@
 # Handler funkcija treba ispisati primljene podatke u terminalu, dodati novi proizvod u listu proizvoda i vratiti
 # odgovor s novom listom proizvoda u JSON formatu.
 import aiohttp
+import asyncio
 from aiohttp import web 
+
 
 app = web.Application()
 
-def handler_function(request): 
-    print("helloW")
-    data = {'naziv' : 'p1', 'cjena' : 10, 'kolicina': 6}
-    return web.json_response(data)
+lista= []
 
-app.router.add_get("/proizvodi",handler_function)
+async def handler_function(request): 
+    response = await request.json()
+    print(response)
+    lista.append(response)
+
+    
+    
+    return web.json_response(lista)
+
+app.router.add_post("/proizvodi", handler_function)
 web.run_app(app,host ="localhost", port= 8081 ) # pokretanje servea
 
