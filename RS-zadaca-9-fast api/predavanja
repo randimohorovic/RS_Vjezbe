@@ -1,0 +1,52 @@
+imali smo simple web servis(- simpemweb fastapi app ...)
+docker File:
+vraca json i pomocu docker fila stavramo virtualn racunalno tj.kotejner
+iz naseg prjekta kopira sse reuirements i sprema u direktoji kotnejenra sto se treba instalirat tamo
+exposd 8080  nesto da se vrti,
+i CMD sa uvicron pokrece se nasa app.
+i onda docker build pa docker run -p 8888:80808 mapiranje porta. (s jednog na drugi nesto)
+
+docker desktop apk:
+- na containers mozemo vidjeti image koj se vrti  i mapiranje porta explained- sve sto se izvodi na ovom racunalu na lcoalhost 8888 se preusmjerava unutar kontejnera 8080. 
+znadi uglavnom drugim rjecima koliko sams kuzio , docker tj virtualka ti se vrti na portu 8888 (koji postravis) salje zahtjeve na server aplikacije koji je 8080(koji isto postavis di je server)
+- container image vidis sve sto se desava za taj container, mozes koristi i terminal unutar toga,
+- tebi je doker conainer prakticki racunalo koje je virtualno pokrenuto sa aplikacijom ili sta god runas u tom containeru
+- ako imas vise workera naoravis vise docker containera, rucno se moze slozit ali ocito ima i automatski
+- > docker build -t nas_worker -f worker.Dockerfile .
+ovdje se svi workeri pokrecu na 8080
+ideja workera je da svaki ima svoj server  i da je ispred njih load balancer koji komunicira sa njim
+- > workeri bi bili 3 zasebna racunla koji runaju na istom portu sto nije problem, ali IP adresa onda
+
+rucno pokrenuti 3 servera, ali nije dobar nacin jer moramo mapirati portove s naseg racunala, nas to ne zanima, zanima ans pristup na laod balancer
+- > docker run -p 9000:8080 nas_worker
+- > docker run -p 9001:8080 nas_worker
+- > docker run -p 9002:8080 nas_worker
+
+kako to anpravit sa jednom naredbom? Docker compose
+- > Horizontalno skaliranje, moramo pokrenuti nekoliko worker kontejnera i onda kontejner za laod balancer i onda to setupirat sa jednom naredbom docker compose
+- > to je sustav koji mora imat pristup an workere (load balancer)i na vasnji dio racunala naseg tj mi imamo pristup samo na load balancer
+
+                // naredba za runnat: docker-compose up
+radimo new file - docker-compose.yml:
+services:
+    worker1:                // specificiraj sta ce bit worker1
+        image: nas_worker // ili cu ti dat instrukcije kako doc do naseg image, ili ces buildat image
+    worker2:
+        image: nas_worker
+
+    worker3:
+        image: nas_worker
+        expse:
+        -"8080"
+    lb:     
+        image: nas_lb
+        ports:
+        -"9000:8080"
+    
+// napravi lb Dockerfile(skripta), treba ti i lb.py,load balancer da mogu pristupit workerima,           tj. lb ima pristup njima
+- workers.conf file treba iskopirat u lb dokcerfile da ima pristup tome tamo su adrese workera
+- kad to dela onda su dignuti workeri i lb ali nisu povezani, treba ih povezat sa docker compose
+- treba dodati expose- lista portova dostupna s docker mreze ali nije dostupna s naseg racunala
+lb.py bi tebo doc do 8080
+
+- kolokviji fastapi,pydantic.. webservis, i izrada dockerfila 
