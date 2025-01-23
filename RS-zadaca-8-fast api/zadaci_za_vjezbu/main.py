@@ -24,7 +24,8 @@ def get_film_by_id(id: int):
 @app.post("/filmovi", response_model = Film)
 def create_film(film: CreateFilm):
     new_id = len(filmovi) + 1 
-    new_film = Film( id=new_id, **film.model_dump())#naziv=film.naziv, genre= film.genre, godina= film.godina
+    new_film=  Film (**film.model_dump(), id=new_id) #naziv=film.naziv, genre= film.genre, godina= film.godina
+    filmovi.append(new_film)
     return new_film
 
 

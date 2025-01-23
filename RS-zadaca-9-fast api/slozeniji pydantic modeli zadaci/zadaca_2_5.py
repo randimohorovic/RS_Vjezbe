@@ -46,7 +46,6 @@ class Jelo(BaseModel):
     cijena: str
 
 
-
 class RestaurantOrder(BaseModel):
     id: str
     ime_kupca: str
