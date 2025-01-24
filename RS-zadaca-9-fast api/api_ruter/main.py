@@ -8,6 +8,10 @@ app.include_router(korisnici_router) # uključujemo rute za korisnike
 app.include_router(knjige_router) # uključujemo rute za knjige
 # nastavljamo dalje s definicijom rute na "main" razini
 
+
+
+#mapa sa routerima mora biti zasebno, main.py je izvan isto kao i models
+
 @app.get("/")
 def home():
     return {"poruka": "Dobrodošli na FastAPI poslužitelj"}
